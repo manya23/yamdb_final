@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# в проекте требуют, чтоб .env лежал именно там.. и иначе тесты не проходят
 dotenv_path = BASE_DIR[:-len('api_yamdb')] + 'infra/.env'
 load_dotenv(dotenv_path)
 
