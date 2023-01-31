@@ -77,9 +77,9 @@ jobs:
           script: |
             # Выполняет pull образа с DockerHub
             sudo docker pull konmari/api_yamdb
-            #остановка всех контейнеров
-            sudo docker stop $(sudo docker ps -a -q)
             
+            #остановка всех контейнеров
+            sudo docker-compose stop
             sudo docker-compose rm web
             touch .env
             echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
