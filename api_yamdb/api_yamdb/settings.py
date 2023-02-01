@@ -1,13 +1,21 @@
 import os
+
 from datetime import timedelta
+from dotenv import load_dotenv
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = 'p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs'
+dotenv_path = BASE_DIR[:-len('api_yamdb')] + 'infra/.env'
+load_dotenv(dotenv_path)
 
-DEBUG = True
+SECRET_KEY = os.getenv("SECRET_KEY", default='p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs')
 
-ALLOWED_HOSTS = ['*']
+# конвертируем значение поля DEBUG из str в bool
+DEBUG = (bool(int(os.environ.get('DEBUG', 0))))
+
+ALLOWED_HOSTS = []
+if not DEBUG:
+    ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default='*').split(' ')
 
 
 INSTALLED_APPS = [
@@ -60,8 +68,12 @@ WSGI_APPLICATION = 'api_yamdb.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': os.getenv('DB_ENGINE', default='django.db.backends.postgresql'),
+        'NAME': os.getenv('DB_NAME', default='postgres'),
+        'USER': os.getenv('POSTGRES_USER', default='postgres'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', default='my_postgres'),
+        'HOST': os.getenv('DB_HOST', default='db'),
+        'PORT': os.getenv('DB_PORT', default='5432')
     }
 }
 
