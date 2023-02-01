@@ -1,7 +1,7 @@
 # yamdb_final
 yamdb_final
 
-![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+![workflow status](https://github.com/manya23/yamdb_final/actions/workflows/main.yml/badge.svg)
 
 
  ### Описание
