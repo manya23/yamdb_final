@@ -1,6 +1,7 @@
 import os
 from datetime import timedelta
 
+from django.core.management.utils import get_random_secret_key
 from dotenv import load_dotenv
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -8,7 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 dotenv_path = BASE_DIR[:-len('api_yamdb')] + 'infra/.env'
 load_dotenv(dotenv_path)
 
-SECRET_KEY = os.getenv("SECRET_KEY", default='p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs')
+SECRET_KEY = get_random_secret_key()
 
 # конвертация значения поля DEBUG из str в bool
 DEBUG = (bool(int(os.environ.get('DEBUG', 0))))

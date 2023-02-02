@@ -1,8 +1,8 @@
 # yamdb_final
-yamdb_final
 
 ![workflow status](https://github.com/manya23/yamdb_final/actions/workflows/main.yml/badge.svg)
 
+yamdb_final
 
  ### Описание
  API для сервиса о произведениях искусства.
