@@ -68,7 +68,7 @@ jobs:
         source: ".env"
         target: ""
         script: |
-          sudo apt install dump-env
+          pip install dump-env
           dump-env --template=.env.template --prefix='SECRET_ENV_' > .env
   
   
