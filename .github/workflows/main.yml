@@ -66,7 +66,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.PASSPHRASE }}
         source: ".env"
-        target: ""
+        target: "/"
         script: |
           pip install dump-env
           dump-env --template=.env.template --prefix='SECRET_ENV_' > .env
