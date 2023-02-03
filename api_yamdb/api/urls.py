@@ -5,7 +5,7 @@ from users.views import UserViewSet
 from .views import (CategoryViewSet, CommentViewSet, GenreViewSet,
                     ReviewViewSet, TitleViewSet)
 
-router1 = routers.SimpleRouter()
+router1 = routers.DefaultRouter()
 router1.register(
     'titles',
     TitleViewSet,
